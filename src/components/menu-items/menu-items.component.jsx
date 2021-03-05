@@ -2,7 +2,7 @@ import React from "react";
 
 import "./menu-items.styles.scss";
 
-export const MenuItems = ({ title, imageUrl, size }) => (
+export const MenuItems = ({ title, imageUrl, size, linkUrl }) => (
   <div className={`${size ? size : ""} menu-item`}>
     <div
       className="background-image"
@@ -10,9 +10,9 @@ export const MenuItems = ({ title, imageUrl, size }) => (
         backgroundImage: `url(${imageUrl})`,
       }}
     ></div>
-    <div className="content">
+    <a className="content" href={linkUrl}>
       <h2 className="title">{title}</h2>
       <span>SHOP NOW</span>
-    </div>
+    </a>
   </div>
 );
