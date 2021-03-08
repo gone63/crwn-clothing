@@ -1,15 +1,15 @@
 import React from "react";
 
-import "./sign-in-and-sign-up.styles.scss";
+import { SignInAndSignUpWrapperStyles } from "./sign-inand-sign-up.styles";
 
 import SignIn from "../../components/sign-in/sign-in.component";
 import SignUp from "../../components/sign-up/sign-up.component";
 
 const SignInAndSignUp = () => (
-  <div className="sign-in-sign-up-wrapper">
+  <SignInAndSignUpWrapperStyles>
     <SignIn />
     <SignUp />
-  </div>
+  </SignInAndSignUpWrapperStyles>
 );
 
 export default SignInAndSignUp;

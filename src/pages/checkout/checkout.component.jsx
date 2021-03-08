@@ -9,44 +9,50 @@ import {
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component";
 
-import "./checkout.styles.scss";
+import {
+  CheckoutPageContainerStyles,
+  CheckoutHeaderStyles,
+  HeaderBlockStyles,
+  TotalStyles,
+  TestWarningStyles,
+} from "./checkout.styles";
 import { clearCartItem } from "../../redux/cart/cart.actions";
 
 const CheckoutPage = ({ cartItems, cartTotal, clearCartItem }) => (
-  <div className="checkout-page">
-    <div className="checkout-header">
-      <div className="header-block">
+  <CheckoutPageContainerStyles>
+    <CheckoutHeaderStyles>
+      <HeaderBlockStyles>
         <span>Product</span>
-      </div>
-      <div className="header-block">
+      </HeaderBlockStyles>
+      <HeaderBlockStyles>
         <span>Description</span>
-      </div>
-      <div className="header-block">
+      </HeaderBlockStyles>
+      <HeaderBlockStyles>
         <span>Quantity</span>
-      </div>
-      <div className="header-block">
+      </HeaderBlockStyles>
+      <HeaderBlockStyles>
         <span>Price</span>
-      </div>
-      <div className="header-block">
+      </HeaderBlockStyles>
+      <HeaderBlockStyles>
         <span>Remove</span>
-      </div>
-    </div>
+      </HeaderBlockStyles>
+    </CheckoutHeaderStyles>
     {cartItems.length ? (
       cartItems.map((item) => <CheckoutItem cartItem={item} key={item.id} />)
     ) : (
       <span>No Items in cart</span>
     )}
 
-    <div className="total">
+    <TotalStyles>
       <span>TOTAL: ${cartTotal}</span>
-    </div>
-    <div className="test-warning">
+    </TotalStyles>
+    <TestWarningStyles className="test-warning">
       *Please use the following card details
       <br />
       Card 4242 4242 4242 4242; Exp 03/22 ; CVV 123
-    </div>
+    </TestWarningStyles>
     <StripeCheckoutButton price={cartTotal} />
-  </div>
+  </CheckoutPageContainerStyles>
 );
 
 const mapStateToProps = createStructuredSelector({

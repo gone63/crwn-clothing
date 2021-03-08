@@ -5,7 +5,6 @@ import { createStructuredSelector } from "reselect";
 import { selectCollectionForPreview } from "../../redux/shop/shop.selectors";
 import CollectionPreview from "../collection-preview/collection-preview.component";
 
-import "./collection-overview.component";
 const CollectionOverview = ({ collections }) => (
   <div className="collection-overview">
     {collections.map(({ id, ...otherCollectionData }) => (

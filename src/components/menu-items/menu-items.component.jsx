@@ -1,18 +1,23 @@
 import React from "react";
 
-import "./menu-items.styles.scss";
+import {
+  MenuItemStyles,
+  BackgroundImgStyles,
+  ContentStyles,
+  TitleStyles,
+} from "./menu-items.styles";
 
 export const MenuItems = ({ title, imageUrl, size, linkUrl }) => (
-  <div className={`${size ? size : ""} menu-item`}>
-    <div
-      className="background-image"
+  //className={`${size ? size : ""} menu-item`}
+  <MenuItemStyles size={size}>
+    <BackgroundImgStyles
       style={{
         backgroundImage: `url(${imageUrl})`,
       }}
-    ></div>
-    <a className="content" href={linkUrl}>
-      <h2 className="title">{title}</h2>
+    ></BackgroundImgStyles>
+    <ContentStyles href={linkUrl}>
+      <TitleStyles className="title">{title}</TitleStyles>
       <span>SHOP NOW</span>
-    </a>
-  </div>
+    </ContentStyles>
+  </MenuItemStyles>
 );
